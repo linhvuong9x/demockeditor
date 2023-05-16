@@ -1,0 +1,14 @@
+{
+  "name": "ckeditor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^37.1.0"
+  }
+}

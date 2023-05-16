@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form >
+    <textarea name="editor" id="editor"></textarea>
+    <button type="button">submit</button>
+</form>
+<script src="./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+<script type="text/javascript" src="./node_modules/ckfinder/ckfinder.js"></script>
+
+<script type="text/javascript">
+
+    ClassicEditor.create(document.querySelector('#editor'), {
+        ckfinder: {
+            // Upload the images to the server using the CKFinder QuickUpload command.
+            uploadUrl: 'node_modules/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+
+            // Define the CKFinder configuration (if necessary).
+            options: {
+                resourceType: 'Images'
+            }
+        },
+
+        language: 'en'
+
+
+
+
+    })
+        .then(editor => {
+            window.editor = editor;
+
+            CKFinder.setupCKEditor(editor);
+            console.log( Array.from( editor.ui.componentFactory.names() ) );
+        })
+        .catch(error => {
+
+            console.error(error);
+        });
+
+</script>
+
+</body>
+</html>
